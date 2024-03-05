@@ -1,0 +1,63 @@
+name: CI
+
+on: [push]
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.1.1
+      - uses: actions/setup-node@v4.0.2
+        with:
+          node-version-file: '.nvmrc'
+      - name: Cache node modules
+        uses: actions/cache@v4.0.1
+        with:
+          path: node_modules
+          key: node-cache-${{ runner.OS }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            node-cache-${{ runner.OS }}-yarn-
+            node-cache-${{ runner.OS }}-
+      - name: Install dependencies
+        run: |
+          yarn --immutable
+  lint:
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.1.1
+      - uses: actions/setup-node@v4.0.2
+        with:
+          node-version-file: '.nvmrc'
+      - name: Cache node modules
+        uses: actions/cache@v4.0.1
+        with:
+          path: node_modules
+          key: node-cache-${{ runner.OS }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            node-cache-${{ runner.OS }}-yarn-
+            node-cache-${{ runner.OS }}-
+      - name: Run Linter
+        run: yarn run lint
+  unit-test:
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.1.1
+      - uses: actions/setup-node@v4.0.2
+        with:
+          node-version-file: '.nvmrc'
+      - name: Cache node modules
+        uses: actions/cache@v4.0.1
+        with:
+          path: node_modules
+          key: node-cache-${{ runner.OS }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            node-cache-${{ runner.OS }}-yarn-
+            node-cache-${{ runner.OS }}-
+      - name: Run unit and integration tests
+        run: yarn test:ci
+      - name: Test coveralls
+        uses: coverallsapp/github-action@v2.2.3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
