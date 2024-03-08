@@ -1,6 +1,6 @@
 exports.test = name => `import { render, screen } from '@testing-library/react';
 
-import { ${name} } from '@/components/${name}';
+import { ${name} } from './${name}';
 
 interface Props {}
 
@@ -19,6 +19,5 @@ interface Props {}
 
 export const ${name}: FC<Props> = () => {
 	return <div>Hello 👋, I am a ${name} component</div>;
-};
-`;
+};`;
 exports.index = name => `export { ${name} } from './${name}';`;

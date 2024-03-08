@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 
-import { Test } from '@/components/Test';
+import { Test } from './Test';
 
 interface Props {}
 

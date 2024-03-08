@@ -4,7 +4,8 @@
 	"private": true,
 	"scripts": {
 		"build": "next build",
-		"create-component": "node .component",
+		"create-component": "node .templates/.component",
+		"create-view": "node .templates/.view",
 		"dev": "next dev",
 		"lint:fix": "yarn lint:ts --fix",
 		"lint:ts": "eslint src --ext .ts,.tsx",
