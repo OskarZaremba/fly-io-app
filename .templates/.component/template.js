@@ -2,9 +2,9 @@ exports.test = name => `import { render, screen } from '@testing-library/react';
 
 import { ${name} } from './${name}';
 
-interface Props {}
+interface IProps {}
 
-const renderComponent = ({}: Props = {}) => render(<${name} />);
+const renderComponent = ({}: IProps = {}) => render(<${name} />);
 
 describe('${name} - Component', () => {
 	it('should render the component', () => {
@@ -15,9 +15,9 @@ describe('${name} - Component', () => {
 });`;
 exports.component = name => `import type { FC } from 'react';
 
-interface Props {}
+interface IProps {}
 
-export const ${name}: FC<Props> = () => {
+export const ${name}: FC<IProps> = () => {
 	return <div>Hello 👋, I am a ${name} component</div>;
 };`;
 exports.index = name => `export { ${name} } from './${name}';`;
