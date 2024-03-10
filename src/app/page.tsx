@@ -1,5 +1,7 @@
-import { Home } from '@/views/Home';
+// import { Home } from '@/views/Home';
+import { SignUp } from '@/views/SignUp';
 
 export default function HomePage() {
-	return <Home />;
+	return <SignUp />;
+	// return <Home />;
 }
