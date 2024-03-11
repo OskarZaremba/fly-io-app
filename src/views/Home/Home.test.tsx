@@ -10,6 +10,6 @@ describe('Home - View', () => {
 	it('should render the view', () => {
 		renderComponent();
 
-		expect(screen.getByText('Hello 👋, I am a Home view')).toBeInTheDocument();
+		expect(screen.getByText('Hello 👋, I am your home page😀')).toBeInTheDocument();
 	});
 });

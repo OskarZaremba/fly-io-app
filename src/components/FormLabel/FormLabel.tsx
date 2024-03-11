@@ -1,7 +1,14 @@
-import type { FC } from 'react';
+import type { FC, LabelHTMLAttributes } from 'react';
+import { twMerge } from 'tailwind-merge';
 
-interface IProps {}
+interface IProps extends LabelHTMLAttributes<HTMLLabelElement> {
+	className?: string;
+	isMandatory: boolean | undefined;
+	label: string;
+}
 
-export const FormLabel: FC<IProps> = () => {
-	return <div>Hello 👋, I am a FormLabel component</div>;
-};
+export const FormLabel: FC<IProps> = ({ className, isMandatory, label, ...props }) => (
+	<label className={twMerge('inline-block cursor-pointer', className)} {...props}>
+		{`${!!isMandatory ? '*' : ''}${label}`}
+	</label>
+);
