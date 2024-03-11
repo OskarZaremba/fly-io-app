@@ -1,7 +1,5 @@
 import type { FC } from 'react';
 
-interface Props {}
-
-export const Home: FC<Props> = () => {
+export const Home: FC = () => {
 	return <main>Hello 👋, I am a Home view</main>;
 };

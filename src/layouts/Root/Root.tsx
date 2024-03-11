@@ -1,7 +1,6 @@
-import { Inter } from 'next/font/google';
-import type { FC, ReactNode } from 'react';
+import { Fragment, type FC, type ReactNode } from 'react';
 
-const inter = Inter({ subsets: ['latin'] });
+import { MainNavigation } from '@/layouts/Root/MainNavigation';
 
 interface IProps {
 	children: ReactNode;
@@ -9,8 +8,9 @@ interface IProps {
 
 export const Root: FC<IProps> = ({ children }) => {
 	return (
-		<html lang="en">
-			<body className={inter.className}>{children}</body>
-		</html>
+		<>
+			<MainNavigation />
+			{children}
+		</>
 	);
 };
