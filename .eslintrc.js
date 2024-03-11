@@ -7,6 +7,7 @@ module.exports = {
 		'plugin:@typescript-eslint/recommended',
 		'plugin:jest-formatting/recommended',
 		'plugin:jest/recommended',
+		'plugin:storybook/recommended',
 	],
 	parserOptions: { project: './tsconfig.json' },
 	rules: {
