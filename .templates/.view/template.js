@@ -1,4 +1,5 @@
-exports.test = name => `import { render, screen } from '@testing-library/react';
+exports.index = name => `export { ${name} } from './${name}';`;
+exports.tests = name => `import { render, screen } from '@testing-library/react';
 
 import { ${name} } from './${name}';
 
@@ -20,4 +21,3 @@ interface IProps {}
 export const ${name}: FC<IProps> = () => {
 	return <main>Hello 👋, I am a ${name} view</main>;
 };`;
-exports.index = name => `export { ${name} } from './${name}';`;
