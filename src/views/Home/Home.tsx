@@ -8,6 +8,8 @@ interface Props {}
 export const Home: FC<Props> = () => {
 	const { data: session } = useSession();
 
+	console.warn('### to masz w session: ', session);
+
 	return (
 		<main>
 			<h1>Hello 👋, I am your home page😀</h1>
