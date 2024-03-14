@@ -22,7 +22,7 @@ RUN apt-get update -qq && \
 # Install node modules
 COPY --link .yarn/ ./.yarn
 COPY --link .yarnrc.yml package.json yarn.lock ./
-RUN yarn --immutable --production
+RUN yarn workspaces focus --production
 
 # Copy application code
 COPY --link . .
