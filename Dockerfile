@@ -22,13 +22,16 @@ RUN apt-get update -qq && \
 # Install node modules
 COPY --link .yarn/ ./.yarn
 COPY --link .yarnrc.yml package.json yarn.lock ./
-RUN yarn workspaces focus --production
+RUN yarn --immutable
 
 # Copy application code
 COPY --link . .
 
 # Build application
 RUN yarn run build
+
+# Remove development dependencies
+RUN yarn workspaces focus --production
 
 # Final stage for app image
 FROM base
