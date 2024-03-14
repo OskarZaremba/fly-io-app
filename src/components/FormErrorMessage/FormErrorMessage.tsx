@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import type { FieldError } from 'react-hook-form';
 
 interface IProps {
-	error: FieldError;
+	error: Partial<FieldError>;
 }
 
 export const FormErrorMessage: FC<IProps> = ({ error }) => {

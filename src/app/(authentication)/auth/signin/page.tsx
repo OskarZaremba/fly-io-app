@@ -1,5 +1,5 @@
-import { SignUp } from '@/views/SignUp';
+import { SignIn } from '@/views/SignIn';
 
 export default function SignInPage() {
-	return <SignUp />;
+	return <SignIn />;
 }

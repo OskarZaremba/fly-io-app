@@ -1,1 +1,1 @@
-export const PROTECTED_ROUTES = ['accounts-settings'];
+export const PROTECTED_ROUTES = ['/accounts-settings'];

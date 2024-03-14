@@ -3,7 +3,7 @@ import type { FieldValues, UseControllerProps } from 'react-hook-form';
 import { useController } from 'react-hook-form';
 import { twMerge } from 'tailwind-merge';
 
-import { FormErrorMessage } from '@/components/FormField/FormErrorMessage';
+import { FormErrorMessage } from '@/components/FormErrorMessage';
 import { FormLabel } from '@/components/FormLabel';
 
 import { FormInput } from './FormInput';
