@@ -20,6 +20,7 @@ RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential node-gyp pkg-config python-is-python3
 
 # Install node modules
+COPY --link prisma/ ./prisma
 COPY --link .yarn/ ./.yarn
 COPY --link .yarnrc.yml package.json yarn.lock ./
 RUN yarn --immutable
