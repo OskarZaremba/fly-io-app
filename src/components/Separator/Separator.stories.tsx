@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Test } from './Test';
+import { Separator } from './Separator';
 
-const meta = { title: 'Design System/Components/Test', component: Test } satisfies Meta<
-	typeof Test
+const meta = { title: 'Design System/Components/Separator', component: Separator } satisfies Meta<
+	typeof Separator
 >;
 
 export default meta;

@@ -5,12 +5,12 @@ const config: Config = {
 		files: ['./src/**/*.{ts,tsx}'],
 		relative: true,
 	},
-	theme: {},
 	plugins: [
 		require('@tailwindcss/forms'),
 		require('tailwind-scrollbar'),
 		require('tailwindcss-hyphens'),
 	],
+	theme: {},
 };
 
 export default config;
