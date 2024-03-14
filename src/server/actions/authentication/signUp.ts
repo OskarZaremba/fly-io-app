@@ -1,6 +1,5 @@
 'use server';
 
-import { Prisma } from '@prisma/client';
 import bcrypt from 'bcryptjs';
 import type { z } from 'zod';
 
@@ -25,11 +24,11 @@ export const signUp = async (data: SignUpArgs) => {
 		await prisma.user.create({ data: { email, password } });
 	} catch (error) {
 		// error from catch send to some errors gathering service
-		if (error instanceof Prisma.PrismaClientKnownRequestError) {
-			if (error.code === 'P2002') {
-				throw new Error('Database Error: Email already exists.'); // nie rzucaj błędów bo jest problem tylko zwróć jakiś {message:'info o błędzie'}
-			}
-		}
+		// if (error instanceof Prisma.PrismaClientKnownRequestError) {
+		// 	if (error.code === 'P2002') {
+		// 		throw new Error('Database Error: Email already exists.'); // nie rzucaj błędów bo jest problem tylko zwróć jakiś {message:'info o błędzie'}
+		// 	}
+		// }
 
 		throw new Error('Database Error: Failed to Create User.'); // nie rzucaj błędów bo jest problem tylko zwróć jakiś {message:'info o błędzie'}
 	}
