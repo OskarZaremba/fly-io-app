@@ -2,8 +2,6 @@ import NextAuth from 'next-auth';
 
 import { configuration } from '@/configs/authentication';
 
-const nextAuth = NextAuth(configuration);
-const { GET, POST } = nextAuth.handlers;
-const { auth, signIn, signOut } = nextAuth;
+const handler = NextAuth(configuration);
 
-export { auth, GET, POST, signIn, signOut };
+export { handler as GET, handler as POST };
