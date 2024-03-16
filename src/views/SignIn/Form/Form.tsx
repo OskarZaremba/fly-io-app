@@ -11,7 +11,6 @@ import { FormErrorMessage } from '@/components/FormErrorMessage';
 import { FormField } from '@/components/FormField';
 import { Separator } from '@/components/Separator';
 import { signInSchema } from '@/constants/schemas';
-import { login } from '@/server/actions/authentication';
 
 type FormInput = z.infer<typeof signInSchema>;
 
@@ -30,7 +29,7 @@ export const Form: FC = () => {
 
 	const submitForm = async (data: FormInput) => {
 		try {
-			await login(data);
+			await signIn('credentials', data);
 		} catch (error) {
 			if (error instanceof Error) setError('root', { message: error.message });
 		}
