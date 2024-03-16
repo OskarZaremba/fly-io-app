@@ -7,6 +7,6 @@ interface Args {
 	user: User | AdapterUser;
 }
 
-export const jwt = async ({ token, user }: Args) => {
+export const jwt = ({ token, user }: Args) => {
 	return { ...token, ...user };
 };

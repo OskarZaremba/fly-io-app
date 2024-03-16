@@ -6,7 +6,7 @@ interface Args {
 	token: JWT;
 }
 
-export const session = async ({ session, token }: Args) => {
+export const session = ({ session, token }: Args) => {
 	session.user.role = token.role;
 
 	return session;
