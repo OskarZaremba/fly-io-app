@@ -8,7 +8,8 @@ export const MainNavigation: FC = () => {
 	const { data: session } = useSession();
 
 	const handleSignOutClick = async () => {
-		signOut({ callbackUrl: '/' });
+		// signOut({ callbackUrl: '/' });
+		signOut();
 	};
 
 	return (
