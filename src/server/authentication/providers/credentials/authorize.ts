@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs';
 import { signInSchema } from '@/constants/schemas';
 import { getUserByEmail } from '@/server/actions/user';
 
-export async function authorize(credentials: Record<string, unknown>) {
+export const authorize = async (credentials: Record<string, string> | undefined) => {
 	const parsedSchema = signInSchema.safeParse(credentials);
 
 	if (!parsedSchema.success) return null;
@@ -18,4 +18,4 @@ export async function authorize(credentials: Record<string, unknown>) {
 	if (!isPasswordValid) return null;
 
 	return user;
-}
+};
